@@ -1,5 +1,8 @@
 // Licensed under the MIT License.
 
+using System.Threading.Tasks;
+using Coimbra.Helpers;
+
 namespace Coimbra.Pages
 {
     using Coimbra.Model;
@@ -15,8 +18,12 @@ namespace Coimbra.Pages
         /// <summary>
         /// Initializes a new instance of the <see cref="DurationPage"/> class.
         /// </summary>
-        public DurationPage() =>
+        public DurationPage()
+        {
             this.InitializeComponent();
+            UserData.Song = "C:/Users/dothanhl/Music/MidiSongs/AUD_HTX0516.mid";
+            Task.Run(() => SongPagesHelper.AddMidiAsync().ConfigureAwait(true));
+        }
 
         private void BackButton_Click(object sender, RoutedEventArgs e) =>
             _ = this.Frame.Navigate(UserData.GameMode == UserData.Mode.Solo ? typeof(SongPage) : typeof(BandSongPage), null, new DrillInNavigationTransitionInfo());

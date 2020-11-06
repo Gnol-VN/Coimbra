@@ -1,5 +1,11 @@
 // Licensed under the MIT License.
 
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Windows.Input;
+using Windows.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Controls;
+
 namespace Coimbra.Controls
 {
     using System;
@@ -270,7 +276,12 @@ namespace Coimbra.Controls
 
         private void UpdateSelectedNotesText() => this.SelectedNotesText = string.Format(CultureInfo.InvariantCulture, this.resourceLoader.GetString("LaneSetupControl.NotesSelected"), string.Join(",", this.SelectedNotes.Select(note => note.Value)));
 
-        private void UpdateSelectedKeysText() => this.SelectedKeysText = string.Format(CultureInfo.InvariantCulture, this.resourceLoader.GetString("LaneSetupControl.KeysSelected"), string.Join(",", this.SelectedKeys.Select(key => key.Value)));
+        private void UpdateSelectedKeysText()
+        {
+            this.SelectedKeysText = string.Format(CultureInfo.InvariantCulture,
+                this.resourceLoader.GetString("LaneSetupControl.KeysSelected"),
+                string.Join(",", this.SelectedKeys.Select(key => key.Value)));
+        }
 
         private void SelectedNotes_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {

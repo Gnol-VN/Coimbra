@@ -54,7 +54,7 @@ namespace Coimbra
                 Window.Current.Content = rootFrame;
             }
 
-            _ = rootFrame.Navigate(typeof(TermsPage), args.Arguments);
+            _ = rootFrame.Navigate(typeof(DurationPage), args.Arguments);
             Window.Current.Activate();
             GazeInput.Interaction = Interaction.Enabled;
         }

@@ -1,5 +1,8 @@
 // Licensed under the MIT License.
 
+using System.Threading.Tasks;
+using Coimbra.Helpers;
+
 namespace Coimbra.Pages
 {
     using System;
@@ -34,6 +37,9 @@ namespace Coimbra.Pages
         /// </summary>
         public InstrumentsPage()
         {
+            UserData.Song = "C:/Users/dothanhl/Music/MidiSongs/AUD_HTX0516.mid";
+            Task.Run(() => SongPagesHelper.AddMidiAsync());
+            UserData.ActiveDuration = UserData.Duration.MediumDuration;
             this.InitializeComponent();
             this.RenderInstruments(this.midiEngine.Instruments);
             this.SetCustomEventHandlers();

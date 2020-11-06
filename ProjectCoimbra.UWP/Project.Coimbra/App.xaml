@@ -114,6 +114,8 @@ Licensed under the MIT License.
                 </Grid>
             </ControlTemplate>
             <!-- Other app resources here -->
+            <x:Double x:Key="ContentDialogMaxWidth">1000</x:Double>
+            <x:Double x:Key="ContentDialogMaxHeight">1000</x:Double>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
